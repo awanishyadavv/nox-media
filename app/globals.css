@@ -1,0 +1,328 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 20% 98%;
+  --foreground: 224 71% 4%;
+  --card: 0 0% 100%;
+  --card-foreground: 224 71% 4%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 71% 4%;
+  --primary: 267 75% 60%;
+  --primary-foreground: 210 20% 98%;
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 224 71% 4%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 8% 46%;
+  --accent: 220 14% 96%;
+  --accent-foreground: 224 71% 4%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 267 75% 60%;
+
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+
+  /* Spacing */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+.dark {
+  --background: 224 71% 4%;
+  --foreground: 210 20% 98%;
+  --card: 224 71% 4%;
+  --card-foreground: 210 20% 98%;
+  --popover: 224 71% 4%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 267 75% 60%;
+  --primary-foreground: 210 20% 98%;
+  --secondary: 215 27% 16%;
+  --secondary-foreground: 210 20% 98%;
+  --muted: 215 27% 16%;
+  --muted-foreground: 217 10% 64%;
+  --accent: 215 27% 16%;
+  --accent-foreground: 210 20% 98%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 215 27% 16%;
+  --input: 215 27% 16%;
+  --ring: 267 75% 60%;
+}
+
+/* Base styles */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Fix horizontal scrolling issues */
+#__next,
+main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Responsive typography */
+h1,
+.h1 {
+  font-size: var(--font-size-4xl);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2,
+.h2 {
+  font-size: var(--font-size-3xl);
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+h3,
+.h3 {
+  font-size: var(--font-size-2xl);
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+h4,
+.h4 {
+  font-size: var(--font-size-xl);
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+h5,
+.h5 {
+  font-size: var(--font-size-lg);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+h6,
+.h6 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+p,
+.p {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.small {
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.bg-grid-black\/\[0\.03\] {
+  background-size: 30px 30px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Media queries for responsive typography */
+@media (max-width: 640px) {
+  h1,
+  .h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  h2,
+  .h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  h3,
+  .h3 {
+    font-size: var(--font-size-xl);
+  }
+
+  p,
+  .p {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Touch-friendly interactive elements */
+button,
+.button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+/* Improve tap target sizes on mobile */
+@media (max-width: 640px) {
+  button,
+  .button,
+  a.button,
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  a {
+    padding: 0.25rem 0;
+    display: inline-block;
+  }
+
+  /* Increase spacing between sections */
+  section + section {
+    margin-top: 1rem;
+  }
+
+  /* Adjust grid layouts */
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Fix for iOS Safari issues */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Improve focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Prevent CLS (Cumulative Layout Shift) */
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve scrollbar appearance */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(147, 51, 234, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(147, 51, 234, 0.7);
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  /* Improve button touch targets */
+  button,
+  .button,
+  [role="button"] {
+    padding: 0.625rem 1rem;
+    min-height: 44px;
+  }
+
+  /* Improve form elements */
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    padding: 0.75rem;
+  }
+
+  /* Adjust spacing */
+  .py-20 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .mb-16 {
+    margin-bottom: 2rem;
+  }
+
+  /* Improve readability */
+  p {
+    max-width: 100%;
+  }
+}
+

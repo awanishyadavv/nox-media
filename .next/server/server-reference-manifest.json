@@ -1,0 +1,17 @@
+{
+  "node": {
+    "40700e0ef3751a14f0f7f5d034131eb1cdaf6b9549": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fawanish-yadav%2FProjects%2FNox%20Media%2Fapp%2Factions%2Fcontact.ts%22%2C%5B%5B%2240700e0ef3751a14f0f7f5d034131eb1cdaf6b9549%22%2C%22submitContactForm%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "Rybvs29+j4WGL5dOu0EOOAGxaU7Gk+aUhyKjiFViPtg="
+}
