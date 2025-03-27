@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 
     // Simple authentication logic
     // In a real app, you would validate against a database and use proper password hashing
-    if (email === "admin@noxmedia.com" && password === "nox123media") {
+    if (email === "admin@noxmedia.in" && password === "nox123media") {
       return NextResponse.json({
         success: true,
         message: "Authentication successful",

@@ -75,11 +75,11 @@ export default function SecurityCertificateValidator() {
   const navigateToDirectSite = () => {
     try {
       // Only navigate the current window, never try to navigate parent frames
-      window.location.href = "https://noxmedia.com"
+      window.location.href = "https://noxmedia.in"
     } catch (error) {
       console.error("Navigation error:", error)
       // Fallback - open in new tab
-      window.open("https://noxmedia.com", "_blank")
+      window.open("https://noxmedia.in", "_blank")
     }
   }
 
@@ -108,7 +108,7 @@ export default function SecurityCertificateValidator() {
             </p>
             <div className="bg-amber-50 border border-amber-200 rounded-md p-4 mb-6">
               <p className="text-sm text-amber-800">
-                <strong>Solution:</strong> Please visit our website directly by typing <strong>noxmedia.com</strong> in
+                <strong>Solution:</strong> Please visit our website directly by typing <strong>noxmedia.in</strong> in
                 your browser, or use the direct link below.
               </p>
             </div>
