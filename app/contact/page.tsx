@@ -138,8 +138,8 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="text-white font-medium">Email Us</h4>
-                        <p className="text-gray-400">info@noxmedia.com</p>
-                        <p className="text-gray-400">support@noxmedia.com</p>
+                        <p className="text-gray-400">info@noxmedia.in</p>
+                        <p className="text-gray-400">support@noxmedia.in</p>
                       </div>
                     </div>
 

@@ -34,7 +34,7 @@ export default function AdminHeader({ onLogout }: AdminHeaderProps) {
               </div>
               <div className="hidden md:block">
                 <p className="text-sm font-medium">Admin User</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">admin@noxmedia.com</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">admin@noxmedia.in</p>
               </div>
             </div>
             <Button variant="outline" size="sm" onClick={onLogout}>

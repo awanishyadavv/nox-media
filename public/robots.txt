@@ -1,0 +1,29 @@
+# robots.txt for noxmedia.in
+# Place this file in your public folder
+
+User-agent: *
+Allow: /
+
+# Block access to admin area for all bots
+Disallow: /admin/
+Disallow: /signin/
+
+# Block access to specific files
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*?*
+
+# Allow access to key assets
+Allow: /sitemap.xml
+Allow: /images/
+Allow: /public/
+
+# Sitemap
+Sitemap: https://www.noxmedia.in/sitemap.xml
+
+# Crawl delay for specific user agents (optional)
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
