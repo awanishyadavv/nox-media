@@ -95,11 +95,11 @@ export const metadata: Metadata = {
     creator: '@noxmedia', // Replace with actual Twitter handle
     site: '@noxmedia', // Replace with actual Twitter handle
   },
-  verification: {
-    google: 'your-google-verification-code', // Replace with actual verification code
-    yandex: 'your-yandex-verification-code', // Replace with actual verification code if needed
-    bing: 'your-bing-verification-code', // Replace with actual verification code if needed
-  },
+  // verification: {
+  //   google: 'your-google-verification-code', // Replace with actual verification code
+  //   yandex: 'your-yandex-verification-code', // Replace with actual verification code if needed
+  //   bing: 'your-bing-verification-code' // Replace with actual verification code if needed
+  // },
   generator: 'Next.js'
 }
 
@@ -110,6 +110,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="msvalidate.01" content="your-bing-verification-code" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {children}

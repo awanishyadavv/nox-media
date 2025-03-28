@@ -1,42 +1,40 @@
-import { createClient } from "@supabase/supabase-js"
+import { createClient, SupabaseClient } from "@supabase/supabase-js"
 
-// Create a single supabase client for the browser
-const createBrowserClient = () => {
-  // Check if environment variables are available
+// Define the type for your client schema (adjust as necessary)
+type Database = any; // If you have a schema, replace `any` with your schema type
+
+// Create a single Supabase client for the browser
+const createBrowserClient = (): SupabaseClient<Database> => {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
   if (!supabaseUrl || !supabaseAnonKey) {
     console.error("Supabase environment variables are missing. Using fallback URL and key.")
-    // Use the environment variables we know are available from the PreviousChatSummary
-    return createClient(
+    return createClient<Database>(
       process.env.SUPABASE_URL || "https://your-project-url.supabase.co",
-      process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "fallback-key",
+      process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "fallback-key"
     )
   }
 
-  return createClient(supabaseUrl, supabaseAnonKey)
+  return createClient<Database>(supabaseUrl, supabaseAnonKey)
 }
 
-// Create a single supabase client for server components
-const createServerClient = () => {
-  // Check if environment variables are available
+// Create a single Supabase client for server components
+const createServerClient = (): SupabaseClient<Database> => {
   const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL
-  const supabaseServiceKey =
-    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
   if (!supabaseUrl || !supabaseServiceKey) {
     console.error("Supabase environment variables are missing for server client.")
     throw new Error("Supabase URL and service role key are required for server operations")
   }
 
-  return createClient(supabaseUrl, supabaseServiceKey)
+  return createClient<Database>(supabaseUrl, supabaseServiceKey)
 }
 
 // Browser client singleton
-let browserClient: ReturnType<typeof createClient> | null = null
+let browserClient: SupabaseClient<Database> | null = null
 
-// Get the browser client (singleton pattern)
 export const getBrowserClient = () => {
   if (!browserClient) {
     browserClient = createBrowserClient()
@@ -44,8 +42,6 @@ export const getBrowserClient = () => {
   return browserClient
 }
 
-// Get the server client (created fresh each time)
 export const getServerClient = () => {
   return createServerClient()
 }
-

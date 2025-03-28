@@ -202,7 +202,7 @@ export default function BlogPost() {
 
           if (foundPost) {
             setPost(foundPost)
-            
+
             // Update SEO data
             setSeoData({
               title: `${foundPost.title} | NOX Media Blog`,
@@ -259,7 +259,7 @@ export default function BlogPost() {
         <meta name="description" content={seoData.description} />
         <meta name="keywords" content={`${post.category}, blog, digital marketing, web design, nox media`} />
         <link rel="canonical" href={seoData.canonicalUrl} />
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
         <meta property="og:url" content={seoData.canonicalUrl} />
@@ -269,7 +269,7 @@ export default function BlogPost() {
         <meta property="article:published_time" content={seoData.publishDate} />
         <meta property="article:author" content={seoData.author} />
         <meta property="article:section" content={post.category} />
-        
+
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={seoData.canonicalUrl} />
@@ -331,12 +331,12 @@ export default function BlogPost() {
                   src={post.image || "/placeholder.svg?height=600&width=1200"}
                   alt={`Featured image for ${post.title}`}
                   title={post.title}
-                  description={post.excerpt}
                   fill
                   className="object-cover"
                   priority={true}
                   unoptimized={post.image && post.image.startsWith("data:")}
                 />
+
               </div>
 
               <article className="prose prose-lg prose-invert max-w-none">
@@ -349,25 +349,25 @@ export default function BlogPost() {
               <div className="mt-8 border-t border-white/10 pt-6">
                 <h3 className="text-white text-lg mb-4">Share this article</h3>
                 <div className="flex flex-wrap gap-2">
-                  <a 
+                  <a
                     href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(seoData.canonicalUrl)}`}
-                    target="_blank" 
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="bg-[#1DA1F2] text-white px-4 py-2 rounded-md hover:bg-[#1a91da] transition-colors"
                   >
                     Twitter
                   </a>
-                  <a 
+                  <a
                     href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(seoData.canonicalUrl)}`}
-                    target="_blank" 
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="bg-[#4267B2] text-white px-4 py-2 rounded-md hover:bg-[#365899] transition-colors"
                   >
                     Facebook
                   </a>
-                  <a 
+                  <a
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(seoData.canonicalUrl)}`}
-                    target="_blank" 
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="bg-[#0077b5] text-white px-4 py-2 rounded-md hover:bg-[#006699] transition-colors"
                   >
