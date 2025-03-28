@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Logo from "@/components/logo"
-import { Bell, Settings } from "lucide-react" 
+import { Bell, Settings } from "lucide-react"
 
 interface AdminHeaderProps {
   onLogout: () => void

@@ -1,27 +1,19 @@
 name = "nox-media"
-compatibility_date = "2024-09-23"
-compatibility_flags = ["nodejs_compat"] # Updated from node_compat to nodejs_compat
+main = "./.next/standalone/server.js"
+compatibility_date = "2023-06-28"
+compatibility_flags = ["nodejs_compat"]
 
-main = "worker.js"
+workers_dev = true
+route = ""
+
+[site]
+bucket = "./.next/static"
 
 [build]
-command = "npm run build && cp worker.js .next/standalone/"
+command = "npm run build"
 
-# Specify where your static assets are located
-[site]
-bucket = ".next/static"
-
-# Worker routes
-[[routes]]
-pattern = "/*"
-script = "worker.js"
-
-# Worker environment variables
-[vars]
-NODE_ENV = "production"
+[build.upload]
+format = "service-worker"
 
 [env.production]
-workers_dev = true
-
-[env.development]
-workers_dev = true
+# Add your production-specific variables here
