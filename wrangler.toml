@@ -1,4 +1,4 @@
-name = "nox-media"
+name = "nox-media-new"
 main = "./.next/standalone/server.js"
 compatibility_date = "2023-06-28"
 compatibility_flags = ["nodejs_compat"]
