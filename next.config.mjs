@@ -47,7 +47,6 @@
 
 // export default nextConfig
 
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -55,7 +54,7 @@ const nextConfig = {
     domains: ['images.unsplash.com', 'source.unsplash.com'],
     unoptimized: true, // This is needed for Cloudflare Workers
   },
-  // Add Cloudflare specific configuration
+  output: 'standalone', // Required for generating .next/standalone/server.js
   experimental: {
     // These help with build performance
     webpackBuildWorker: true,
