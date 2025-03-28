@@ -1,12 +1,12 @@
 {
-  "name": "my-v0-project",
+  "name": "nox-media",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "deploy": "wrangler pages deploy .next/static"
+    "start": "node .next/standalone/server.js",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

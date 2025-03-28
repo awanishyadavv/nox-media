@@ -65,7 +65,6 @@
 
 // export default nextConfig;
 
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -79,8 +78,14 @@ const nextConfig = {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
-    // Add this to prevent Node.js modules from being bundled in edge runtime
-    serverComponentsExternalPackages: [],
+  },
+  // Properly handle Node.js built-ins for Next.js 15.x
+  serverExternalPackages: [],
+  // Transform Node.js module imports to use the node: prefix
+  modularizeImports: {
+    'node:': {
+      transform: 'node:{{member}}',
+    },
   },
   // Add webpack configuration to handle Node.js built-in modules
   webpack: (config, { isServer }) => {
@@ -94,6 +99,18 @@ const nextConfig = {
         os: false,
         crypto: false,
       };
+      
+      // Add node: prefix to Node.js module imports
+      config.externals.push(({ request }, callback) => {
+        const nodeBuiltins = ['fs', 'path', 'os', 'crypto', 'buffer', 'querystring'];
+        if (nodeBuiltins.includes(request)) {
+          // Externalize to a commonjs module using the node: scheme
+          return callback(null, `commonjs node:${request}`);
+        }
+        
+        // Continue without externalizing
+        callback();
+      });
     }
     return config;
   },
