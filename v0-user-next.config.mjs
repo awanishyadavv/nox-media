@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',  // This is the correct placement
   images: {
     domains: ['images.unsplash.com', 'source.unsplash.com'],
   },
@@ -44,4 +45,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-

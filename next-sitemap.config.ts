@@ -11,7 +11,7 @@ module.exports = {
         hreflang: 'en',
       },
     ],
-    transform: async (config, path) => {
+    transform: async (config:any, path:any) => {
       // Custom transform function (optional)
       // This allows you to change the priority or changefreq for specific pages
       

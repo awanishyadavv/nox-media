@@ -116,9 +116,9 @@ export function RelatedContent({
 // components/contextual-navigation.tsx
 "use client"
 
-import Link from "next/link"
+// import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChevronRight } from "lucide-react"
 
 interface NavigationItem {

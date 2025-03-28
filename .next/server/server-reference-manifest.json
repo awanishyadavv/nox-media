@@ -1,17 +1,1 @@
-{
-  "node": {
-    "40700e0ef3751a14f0f7f5d034131eb1cdaf6b9549": {
-      "workers": {
-        "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fawanish-yadav%2FProjects%2FNox%20Media%2Fapp%2Factions%2Fcontact.ts%22%2C%5B%5B%2240700e0ef3751a14f0f7f5d034131eb1cdaf6b9549%22%2C%22submitContactForm%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
-      }
-    }
-  },
-  "edge": {},
-  "encryptionKey": "Rybvs29+j4WGL5dOu0EOOAGxaU7Gk+aUhyKjiFViPtg="
-}
+{"node":{"40e13257c7de2db054227a556ef9aeb3f3a0d1379c":{"workers":{"app/api/newsletter/route":{"moduleId":"38075","async":false}},"layer":{"app/api/newsletter/route":"rsc"}},"00b989c80b54918919cd1333b9a76973a48001e933":{"workers":{"app/admin/dashboard/page":{"moduleId":"3580","async":false}},"layer":{"app/admin/dashboard/page":"action-browser"}},"405f55df6c2bf747d871be621e0c083cfaca638340":{"workers":{"app/admin/dashboard/page":{"moduleId":"3580","async":false}},"layer":{"app/admin/dashboard/page":"action-browser"}},"40a9bcc2cab65476920560de272859a7855ed82206":{"workers":{"app/admin/dashboard/page":{"moduleId":"3580","async":false}},"layer":{"app/admin/dashboard/page":"action-browser"}},"40e1e5c1400be3b2ef884b91d0306ad4cd6fbc6d8a":{"workers":{"app/admin/dashboard/page":{"moduleId":"3580","async":false}},"layer":{"app/admin/dashboard/page":"action-browser"}},"6037fd1a818fea770db6b5aac06d3734497e184d05":{"workers":{"app/admin/dashboard/page":{"moduleId":"3580","async":false}},"layer":{"app/admin/dashboard/page":"action-browser"}},"40c5d6ee84c906fa7974140896c3a2fc0fa76de672":{"workers":{"app/admin/dashboard/page":{"moduleId":"3580","async":false}},"layer":{"app/admin/dashboard/page":"action-browser"}},"40700e0ef3751a14f0f7f5d034131eb1cdaf6b9549":{"workers":{"app/page":{"moduleId":"55222","async":false}},"layer":{"app/page":"action-browser"}}},"edge":{},"encryptionKey":"Rybvs29+j4WGL5dOu0EOOAGxaU7Gk+aUhyKjiFViPtg="}

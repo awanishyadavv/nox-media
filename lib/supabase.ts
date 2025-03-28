@@ -1,4 +1,4 @@
-import { createClient } from "@supabase/supabase-js"
+import { createClient, SupabaseClient } from "@supabase/supabase-js"
 
 // Create a single supabase client for the browser
 const createBrowserClient = () => {
@@ -33,8 +33,9 @@ const createServerClient = () => {
   return createClient(supabaseUrl, supabaseServiceKey)
 }
 
-// Browser client singleton
-let browserClient: ReturnType<typeof createClient> | null = null
+// Use the correct type that matches what createClient returns
+// The type should be SupabaseClient<any, "public", any>
+let browserClient: SupabaseClient<any, "public", any> | null = null
 
 // Get the browser client (singleton pattern)
 export const getBrowserClient = () => {
@@ -49,3 +50,4 @@ export const getServerClient = () => {
   return createServerClient()
 }
 
+export {}

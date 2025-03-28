@@ -49,11 +49,13 @@ export const applyBrowserFixes = () => {
   if (os) document.body.classList.add(`os-${os}`)
 
   // IE11 fixes
+  // IE11 fixes
   if (browser === "ie") {
     // Add polyfills for IE11
-    import("core-js/stable")
-    import("regenerator-runtime/runtime")
+    (import("core-js/stable") as any);
+    (import("regenerator-runtime/runtime") as any);
 
+    // Rest of your code...
     // Fix for flexbox issues in IE11
     const style = document.createElement("style")
     style.innerHTML = `
@@ -77,7 +79,7 @@ export const applyBrowserFixes = () => {
     document.head.appendChild(style)
 
     // Fix for sticky positioning
-    document.addEventListener("touchmove", () => {}, { passive: true })
+    document.addEventListener("touchmove", () => { }, { passive: true })
   }
 }
 
