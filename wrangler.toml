@@ -1,19 +1,14 @@
 name = "nox-media"
-main = "./.next/standalone/server.js"
-compatibility_date = "2023-06-28"
-compatibility_flags = ["nodejs_compat"]
-
-workers_dev = true
-route = ""
-
-[site]
-bucket = "./.next/static"
+compatibility_date = "2024-09-23" # This is crucial for Node.js built-in modules
 
 [build]
 command = "npm run build"
 
-[build.upload]
-format = "service-worker"
+[site]
+bucket = ".next/static"
 
 [env.production]
-# Add your production-specific variables here
+# Production-specific settings can go here
+
+[env.development]
+# Development-specific settings can go here
