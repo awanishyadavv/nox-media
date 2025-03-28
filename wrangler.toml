@@ -1,7 +1,8 @@
 name = "nox-media"
-compatibility_date = "2024-09-23" # This is crucial for Node.js built-in modules
-main = "worker.js" # Point to our worker script
-node_compat = true # Enable Node.js compatibility
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"] # Updated from node_compat to nodejs_compat
+
+main = "worker.js"
 
 [build]
 command = "npm run build && cp worker.js .next/standalone/"
@@ -10,21 +11,14 @@ command = "npm run build && cp worker.js .next/standalone/"
 [site]
 bucket = ".next/static"
 
-# Upload the Next.js standalone server directory
-[[build.upload]]
-format = "directory"
-dir = ".next/standalone"
-route = "/"
+# Worker routes
+[[routes]]
+pattern = "/*"
+script = "worker.js"
 
-# Make sure Node.js built-ins are properly handled
-[rules]
-[rules.node_modules]
-type = "CompiledWasm"
-globs = ["**/*.wasm"]
-
-[miniflare]
-kv_persist = true
-cache_persist = true
+# Worker environment variables
+[vars]
+NODE_ENV = "production"
 
 [env.production]
 workers_dev = true

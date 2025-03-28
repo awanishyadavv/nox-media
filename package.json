@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "node .next/standalone/server.js",
-    "deploy": "wrangler deploy"
+    "deploy": "node deploy.js"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

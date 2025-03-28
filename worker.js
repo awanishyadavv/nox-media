@@ -1,25 +1,18 @@
-import { createFetch } from 'node:http';
-
-// Adapter function for Cloudflare Workers
+// Simple Cloudflare Worker to serve the Next.js app
 export default {
-  async fetch(request, env, ctx) {
-    // Create a Node.js compatible fetch implementation
-    const nodeFetch = createFetch({
-      // This converts from a Cloudflare Request to a Node.js request
-      Request: Request,
-      // This converts from a Node.js response to a Cloudflare Response
-      Response: Response,
-    });
-
-    // Import the Next.js server
-    const { default: server } = await import('./server.js');
-
-    try {
-      // Pass the request to the Next.js server
-      return await server(request, nodeFetch);
-    } catch (error) {
-      // Basic error handling
-      return new Response(`Server error: ${error.message}`, { status: 500 });
+    async fetch(request, env, ctx) {
+      try {
+        // Import the Next.js server from the standalone build
+        const { default: server } = await import('./server.js');
+        
+        // Call the server with the request
+        return await server(request);
+      } catch (error) {
+        // Return a simple error response
+        return new Response(`Server Error: ${error.message}`, {
+          status: 500,
+          headers: { 'Content-Type': 'text/plain' }
+        });
+      }
     }
-  },
-};
+  };

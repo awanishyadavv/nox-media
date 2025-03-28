@@ -64,7 +64,6 @@
 // };
 
 // export default nextConfig;
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -81,13 +80,7 @@ const nextConfig = {
   },
   // Properly handle Node.js built-ins for Next.js 15.x
   serverExternalPackages: [],
-  // Transform Node.js module imports to use the node: prefix
-  modularizeImports: {
-    'node:': {
-      transform: 'node:{{member}}',
-    },
-  },
-  // Add webpack configuration to handle Node.js built-in modules
+  // Modify imports specifically for Cloudflare compatibility
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Mark Node.js built-ins as external to prevent bundling
@@ -100,16 +93,28 @@ const nextConfig = {
         crypto: false,
       };
       
-      // Add node: prefix to Node.js module imports
-      config.externals.push(({ request }, callback) => {
-        const nodeBuiltins = ['fs', 'path', 'os', 'crypto', 'buffer', 'querystring'];
-        if (nodeBuiltins.includes(request)) {
-          // Externalize to a commonjs module using the node: scheme
-          return callback(null, `commonjs node:${request}`);
+      // Replace Node.js module imports with prefixed versions
+      config.plugins.push({
+        apply(compiler) {
+          compiler.hooks.compilation.tap('ReplaceNodeImports', compilation => {
+            compilation.hooks.optimizeModules.tap('ReplaceNodeImports', modules => {
+              modules.forEach(module => {
+                if (module.resource && module.resource.includes('node_modules')) {
+                  return;
+                }
+                
+                if (module.dependencies) {
+                  module.dependencies.forEach(dep => {
+                    if (dep.request === 'fs' || dep.request === 'path' || 
+                        dep.request === 'fs/promises' || dep.request === 'crypto') {
+                      dep.request = `node:${dep.request}`;
+                    }
+                  });
+                }
+              });
+            });
+          });
         }
-        
-        // Continue without externalizing
-        callback();
       });
     }
     return config;
